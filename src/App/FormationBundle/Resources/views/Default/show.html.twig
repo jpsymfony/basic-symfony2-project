@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Top or Flop - media' %}
+
+{% block content %}
+    <h2>{{ media.title }}</h2>
+    <p>
+        <img src="{{ media.url }}"/><br/>
+        <b>Score:</b> {{ media.displayedAverage }}/10 <i>({{ media.votes | length }} votes)</i>
+    </p>
+    {% if is_granted('ROLE_USER') %}
+        <hr/>
+        <p>
+            {% if not media.hasUserAlreadyVoted(app.user) %}
+                <b>Top ou Flop? Votez!</b>
+                <form action="{{ path('vote_media', {'id': media.id}) }}" method="POST" class="form-horizontal">
+                    {{ form_widget(form.score) }}
+                    {{ form_rest(form) }}
+                    <input type="submit" value="Voter" class="btn btn-primary"/>
+                </form>
+            {% endif %}
+        {% else %}
+            <div class="alert alert-block">Vous devez être connecté pour voter.</div>
+        </p>
+    {% endif %}
+{% endblock %}

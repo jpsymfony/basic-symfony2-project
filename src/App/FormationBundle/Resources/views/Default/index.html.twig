@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block header %}
+    <h1>Bonjour {{ name }}, {{ parent() | lower | raw }} </h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Accueil</h2>
+    <ul>
+        {% for index, day in days %}
+            <li>{{ index }} : {{ day }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        {{ html }}
+    </p>
+    <p>
+        {{ html | replace({"n'est pas" : "est"}) | raw }}
+    </p>
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    - <a href="{{ path('index') }}">Lien vers l'index</a>
+{% endblock %}

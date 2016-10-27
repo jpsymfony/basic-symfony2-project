@@ -1,0 +1,5 @@
+<h2>Classement des {{ title }}</h2>
+{% for index, media in topsFlops %}
+    <a href="{{ path('show_media', {'id': media.id}) }}">{{ media.title }}</a>
+    - {{ media.displayedAverage }}/ 10 <i>({{ media.votes | length }} votes)</i><br/>
+{% endfor %}

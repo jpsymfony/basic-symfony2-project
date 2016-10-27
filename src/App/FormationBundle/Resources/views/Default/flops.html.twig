@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Top or Flop - tops' %}
+
+{% block content %}
+    {% include '@AppFormation/Default/partials/tops_flops.html.twig' with {'title' : 'flops', 'topsFlops' : flops}  %}
+{% endblock %}

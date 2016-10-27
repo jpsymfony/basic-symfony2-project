@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+    {% if error %}
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+    {% endif %}
+        <h1>Connexion</h1>
+        <form action="{{ path('security_login_check') }}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password" />
+            <button type="submit">login</button>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+        </form>
+{% endblock %}

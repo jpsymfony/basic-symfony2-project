@@ -1,0 +1,10 @@
+<p>Message reçu de {{ contact.firstName}} {{ contact.lastName}}</p>
+<p>Email: {{ contact.email }}</p>
+{% if contact.cellphone %}<p>Numéro de téléphone: {{ contact.cellphone }}</p>{% endif %}
+{% if contact.knowledge %}
+    <p>{{ contact.firstName}} {{ contact.lastName}} a connu le site ainsi: {{ contact.knowledge | trans({}, 'contact') }}</p>
+    {% if 'autre' == contact.knowledge %}
+        {{ contact.other }}
+    {% endif %}
+{% endif %}
+{% if contact.additionalInformation %}<p>Informations complémentaires: {{ contact.additionalInformation }}</p>{% endif %}
