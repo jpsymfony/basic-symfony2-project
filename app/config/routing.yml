@@ -1,4 +1,4 @@
-app_formation:
-    resource: "@AppFormationBundle/Controller/"
+app:
+    resource: "@AppBundle/Controller/"
     type:     annotation
     prefix:   /
