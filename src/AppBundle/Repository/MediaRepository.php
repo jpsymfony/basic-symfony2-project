@@ -140,11 +140,11 @@ class MediaRepository extends \Doctrine\ORM\EntityRepository
     }
 
     /**
-     * @param $vote
+     * @param $media
      */
-    public function save($vote)
+    public function save(Media $media)
     {
-        $this->_em->persist($vote);
+        $this->_em->persist($media);
         $this->_em->flush();
     }
 }
