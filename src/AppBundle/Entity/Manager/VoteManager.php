@@ -13,7 +13,7 @@ class VoteManager
     /**
      * @var voteRepository $voteRepository
      */
-    protected $mediaRepository;
+    protected $voteRepository;
 
     /**
      * @var TokenStorageInterface $tokenStorage
